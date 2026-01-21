@@ -2,48 +2,140 @@
 <html>
 <head>
     <title>Image Filtering Project</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
+<!-- ===== Header ===== -->
+<div class="header">
+    <div class="student-info">
+        SAHIL RAJ <br>
+        Roll No: 23F3000138
+    </div>
+
+    <div class="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/en/6/69/IIT_Madras_Logo.svg"
+             alt="IIT Madras Logo">
+    </div>
+</div>
+
+<!-- ===== Main Content ===== -->
 <div class="container">
-    <h1>Image Smoothing and Edge Enhancement</h1>
+
+    <h1>
+        <i class="fa-solid fa-image"></i>
+        Image Smoothing and Edge Enhancement
+    </h1>
 
     <p>
-        Upload an image to apply Mean, Gaussian, and Laplacian filters
+        Upload an image, select a filter, and visualize blurring or edge enhancement
+        using basic signal processing techniques.
     </p>
 
+    <!-- Upload Form -->
     <form method="POST" enctype="multipart/form-data">
         <input type="file" name="image" required>
         <br><br>
-        <button type="submit">Upload & Process</button>
+
+        <!-- Filter Selection -->
+        <select name="filter" required>
+            <option value="all">Apply All Filters</option>
+            <option value="mean">Mean Filter (Blurring)</option>
+            <option value="gaussian">Gaussian Filter (Smooth Blurring)</option>
+            <option value="laplacian">Laplacian Filter (Edge Enhancement)</option>
+        </select>
+
+        <br><br>
+
+        <button type="submit">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            Apply Filter
+        </button>
     </form>
 
-    {% if original %}
-    <div class="images">
-        <div>
-            <h3>Original</h3>
-            <img src="{{ original }}">
-        </div>
-
-        <div>
-            <h3>Mean Filter</h3>
-            <img src="{{ mean }}">
-        </div>
-
-        <div>
-            <h3>Gaussian Filter</h3>
-            <img src="{{ gaussian }}">
-        </div>
-
-        <div>
-            <h3>Laplacian Filter</h3>
-            <img src="{{ laplacian }}">
-        </div>
+    <!-- Loading Animation -->
+    <div id="loader" style="display:none; text-align:center; margin-top:20px;">
+        <i class="fa-solid fa-spinner fa-spin fa-3x"></i>
+        <p>Processing image, please wait...</p>
     </div>
+
+    <!-- ===== Results Section ===== -->
+    {% if original %}
+
+        <hr>
+
+        <h2>Filtered Results</h2>
+
+        <div class="images">
+
+            <div>
+                <h3><i class="fa-solid fa-camera"></i> Original Image</h3>
+                <img src="{{ original }}">
+            </div>
+
+            {% if mean %}
+            <div>
+                <h3><i class="fa-solid fa-blur"></i> Mean Filter</h3>
+                <img src="{{ mean }}">
+            </div>
+            {% endif %}
+
+            {% if gaussian %}
+            <div>
+                <h3><i class="fa-solid fa-wave-square"></i> Gaussian Filter</h3>
+                <img src="{{ gaussian }}">
+            </div>
+            {% endif %}
+
+            {% if laplacian %}
+            <div>
+                <h3><i class="fa-solid fa-border-all"></i> Laplacian Filter</h3>
+                <img src="{{ laplacian }}">
+            </div>
+            {% endif %}
+
+        </div>
+
+        <!-- ===== Before / After Slider (Mean Filter) ===== -->
+        {% if mean %}
+        <h2>Before / After Comparison (Mean Filter)</h2>
+
+        <div class="slider-container">
+            <img src="{{ original }}" class="before">
+            <img src="{{ mean }}" class="after" id="afterImage">
+            <input type="range" min="0" max="100" value="50" id="slider">
+        </div>
+        {% endif %}
+
     {% endif %}
+
 </div>
+
+<!-- ===== Loader Script ===== -->
+<script>
+document.querySelector("form").addEventListener("submit", function () {
+    document.getElementById("loader").style.display = "block";
+});
+</script>
+
+<!-- ===== Before / After Slider Script (Step 4.3) ===== -->
+<script>
+const slider = document.getElementById("slider");
+const afterImg = document.getElementById("afterImage");
+
+if (slider && afterImg) {
+    slider.addEventListener("input", function () {
+        afterImg.style.clipPath = `inset(0 ${100 - this.value}% 0 0)`;
+    });
+}
+</script>
 
 </body>
 </html>
