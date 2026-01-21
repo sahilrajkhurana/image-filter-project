@@ -143,3 +143,61 @@ button:hover {
     width: 100%;
     margin-top: 330px;
 }
+
+/* ===== Status Message ===== */
+
+.status-success {
+    margin: 25px auto;
+    padding: 14px 20px;
+    max-width: 500px;
+    background-color: #ecfdf5;
+    color: #065f46;
+    border-left: 6px solid #22c55e;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+/* ===== Description Cards ===== */
+
+.card {
+    background: #fffbeb; /* soft golden */
+    padding: 16px;
+    border-radius: 14px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    text-align: center;
+} 
+
+.card h3 {
+    color: #92400e;
+    margin-bottom: 10px;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.desc {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #374151;
+    line-height: 1.4;
+}
+/* ===== Fade-in Animation ===== */
+
+.fade-in {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
