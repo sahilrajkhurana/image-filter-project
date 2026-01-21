@@ -68,40 +68,47 @@
 
     <!-- ===== Results Section ===== -->
     {% if original %}
+    <div class="status-success">
+    <i class="fa-solid fa-circle-check"></i>
+    Image processed successfully. Results are displayed below.
+</div>
+
 
         <hr>
 
         <h2>Filtered Results</h2>
 
-        <div class="images">
+        <div class="images fade-in">
 
-            <div>
-                <h3><i class="fa-solid fa-camera"></i> Original Image</h3>
-                <img src="{{ original }}">
-            </div>
 
-            {% if mean %}
-            <div>
-                <h3><i class="fa-solid fa-blur"></i> Mean Filter</h3>
-                <img src="{{ mean }}">
-            </div>
-            {% endif %}
+    <div>
+        <h3><i class="fa-solid fa-camera"></i> Original Image</h3>
+        <img src="{{ original }}">
+    </div>
 
-            {% if gaussian %}
-            <div>
-                <h3><i class="fa-solid fa-wave-square"></i> Gaussian Filter</h3>
-                <img src="{{ gaussian }}">
-            </div>
-            {% endif %}
+    {% if mean %}
+    <div>
+        <h3><i class="fa-solid fa-blur"></i> Mean Filter</h3>
+        <img src="{{ mean }}">
+    </div>
+    {% endif %}
 
-            {% if laplacian %}
-            <div>
-                <h3><i class="fa-solid fa-border-all"></i> Laplacian Filter</h3>
-                <img src="{{ laplacian }}">
-            </div>
-            {% endif %}
+    {% if gaussian %}
+    <div>
+        <h3><i class="fa-solid fa-wave-square"></i> Gaussian Filter</h3>
+        <img src="{{ gaussian }}">
+    </div>
+    {% endif %}
 
-        </div>
+    {% if laplacian %}
+    <div>
+        <h3><i class="fa-solid fa-border-all"></i> Laplacian Filter</h3>
+        <img src="{{ laplacian }}">
+    </div>
+    {% endif %}
+
+</div>
+
 
         <!-- ===== Before / After Slider (Mean Filter) ===== -->
         {% if mean %}
@@ -136,9 +143,49 @@ if (slider && afterImg) {
     });
 }
 </script>
+<footer style="
+    margin-top:40px;
+    padding:20px;
+    text-align:center;
+    background:rgba(255,255,255,0.9);
+    font-size:14px;
+    border-top:3px solid #f59e0b;
+">
+
+    <div style="margin-bottom:8px;">
+        Signal Processing Project | IIT Madras
+    </div>
+
+    <div style="margin-bottom:10px;">
+     <span style="color:red;">♥</span> Developed by <b>Sahil Raj (23F3000138)</b>
+
+
+
+    </div>
+
+    <div style="font-size:16px;">
+        <a href="https://www.linkedin.com/in/sahilrajkhurana"
+           target="_blank"
+           style="margin-right:20px; text-decoration:none; color:#111827;">
+            <i class="fa-brands fa-linkedin"></i>
+            @sahilrajkhurana
+        </a>
+
+        <a href="https://github.com/sahilrajkhurana"
+           target="_blank"
+           style="text-decoration:none; color:#111827;">
+            <i class="fa-brands fa-github"></i>
+            @sahilrajkhurana
+        </a>
+    </div>
+
+</footer>
+
 
 </body>
 </html>
+
+
 
 
 
