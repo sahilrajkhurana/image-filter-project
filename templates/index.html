@@ -80,16 +80,23 @@
 
         <div class="images fade-in">
 
-
     <div>
         <h3><i class="fa-solid fa-camera"></i> Original Image</h3>
         <img src="{{ original }}">
+        <p class="filter-desc">
+            This is the original grayscale image used as the reference input for all
+            filtering operations.
+        </p>
     </div>
 
     {% if mean %}
     <div>
         <h3><i class="fa-solid fa-blur"></i> Mean Filter</h3>
         <img src="{{ mean }}">
+        <p class="filter-desc">
+            The mean filter performs simple averaging of neighboring pixels. It smooths
+            the image and reduces noise but may cause edge blurring.
+        </p>
     </div>
     {% endif %}
 
@@ -97,6 +104,10 @@
     <div>
         <h3><i class="fa-solid fa-wave-square"></i> Gaussian Filter</h3>
         <img src="{{ gaussian }}">
+        <p class="filter-desc">
+            The Gaussian filter applies weighted averaging based on a Gaussian
+            distribution, resulting in smoother blurring with better edge preservation.
+        </p>
     </div>
     {% endif %}
 
@@ -104,10 +115,16 @@
     <div>
         <h3><i class="fa-solid fa-border-all"></i> Laplacian Filter</h3>
         <img src="{{ laplacian }}">
+
+        <p class="filter-desc">
+            The Laplacian filter is a second-order derivative operator that enhances
+            edges by detecting rapid changes in pixel intensity.
+        </p>
     </div>
     {% endif %}
 
 </div>
+
 
 
         <!-- ===== Before / After Slider (Mean Filter) ===== -->
