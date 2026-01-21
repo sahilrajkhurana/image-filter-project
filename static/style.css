@@ -1,60 +1,145 @@
+/* ===== Global Styles ===== */
+
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #667eea, #764ba2);
+    background: linear-gradient(to right, #f6d365, #fda085); /* Golden Yellow */
     margin: 0;
     padding: 0;
 }
 
-.container {
-    background-color: white;
-    width: 80%;
-    margin: 40px auto;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+/* ===== Header ===== */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
 }
+
+.student-info {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.logo img {
+    height: 60px;
+}
+
+/* ===== Main Container ===== */
+
+.container {
+    background-color: #ffffff;
+    width: 85%;
+    max-width: 1100px;
+    margin: 20px auto 40px auto;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* ===== Headings ===== */
 
 h1 {
     text-align: center;
     color: #333;
 }
 
-p {
+h2 {
     text-align: center;
+    color: #444;
+    margin-top: 40px;
+}
+
+h3 {
     color: #555;
 }
 
+/* ===== Text ===== */
+
+p {
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+}
+
+/* ===== Form ===== */
+
 form {
     text-align: center;
-    margin-bottom: 30px;
+    margin-top: 20px;
 }
 
 input[type="file"] {
-    padding: 10px;
+    padding: 8px;
+}
+
+select {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
 }
 
 button {
-    background-color: #667eea;
+    background-color: #d97706; /* golden button */
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-size: 15px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #5a67d8;
+    background-color: #b45309;
 }
+
+/* ===== Image Grid ===== */
 
 .images {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    gap: 25px;
+    margin-top: 30px;
     text-align: center;
 }
 
 .images img {
     width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* ===== Loader ===== */
+
+#loader p {
+    color: #333;
+    font-weight: bold;
+}
+
+/* ===== Before / After Slider ===== */
+
+.slider-container {
+    position: relative;
+    width: 320px;
+    margin: 40px auto;
+}
+
+.slider-container img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    clip-path: inset(0 50% 0 0);
+}
+
+#slider {
+    width: 100%;
+    margin-top: 330px;
 }
