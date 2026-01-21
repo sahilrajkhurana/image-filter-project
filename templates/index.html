@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Filtering Project</title>
+</head>
+
+<body style="font-family: Arial; background-color: #f5f5f5; padding: 30px;">
+
+    <h1 style="color: #333;">
+        Image Smoothing and Edge Enhancement
+    </h1>
+
+    <p style="color: #555;">
+        Upload an image to apply Mean, Gaussian, and Laplacian filters.
+    </p>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" required>
+        <br><br>
+        <button type="submit" style="padding: 8px 15px;">
+            Upload & Process
+        </button>
+    </form>
+
+    {% if original %}
+        <hr>
+
+        <h2>Results</h2>
+
+        <h3>Original Image</h3>
+        <img src="{{ original }}" width="250">
+
+        <h3>Mean Filter (Blurring)</h3>
+        <img src="{{ mean }}" width="250">
+
+        <h3>Gaussian Filter (Smooth Blurring)</h3>
+        <img src="{{ gaussian }}" width="250">
+
+        <h3>Laplacian Filter (Edge Enhancement)</h3>
+        <img src="{{ laplacian }}" width="250">
+    {% endif %}
+
+</body>
+</html>
+
